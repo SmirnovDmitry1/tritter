@@ -5,7 +5,10 @@ Handle files:
   Style: css, scss, sass, 
   Fonts: ttf, woff, woff2, eot,
   Images: svg, png, jpeg, gif
-  
+
+Install: 
+  "npm i" - install dependencys
+
 Commands:
   "dev" - run dev server with hot-reload,
   "build-dev" - dev build,
