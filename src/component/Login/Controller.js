@@ -22,7 +22,9 @@ class Controller {
   }
 
   handleLogin = data => {
-    this.model.loginUser(data)
+    const res = this.model.loginUser(data)
+
+    return res
   }
 }
 

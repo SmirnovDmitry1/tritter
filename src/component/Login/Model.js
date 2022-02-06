@@ -5,12 +5,17 @@ class Model {
   }
 
   loginUser(data) {
-    loginUser(data).then(res => {
+    const res = loginUser(data).then(res => {
       if (res.isLogin) {
         localStorage.setItem('user', JSON.stringify({...res, isLogin: true}))
         window.location.href = '/'
+        return true
+      } else {
+        return false
       }
     })
+
+    return res
   }
 }
 

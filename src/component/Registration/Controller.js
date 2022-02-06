@@ -22,7 +22,9 @@ class Controller {
   }
 
   handleRegistration = data => {
-    this.model.registrationUser(data)
+    const res = this.model.registrationUser(data)
+
+    return res
   }
 }
 

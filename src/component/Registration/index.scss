@@ -1,7 +1,7 @@
 .shroud {
   .registration {
     width: 600px;
-    height: 650px;
+    padding-bottom: 38px;
     background-color: #000000;
     border-radius: 16px;
 
@@ -54,12 +54,21 @@
         border: 1px solid #2a2e31;
         margin: 12px 0;
         border-radius: 5px;
-        padding: 10px; 
-        outline:none;
+        padding: 10px;
+        outline: none;
       }
 
-      .input:focus-visible, :focus {
-        border: 2px solid rgb(29, 155, 240)
+      .error {
+        border: 2px solid red;
+      }
+
+      .input:focus-visible,
+      :focus {
+        border: 2px solid rgb(29, 155, 240);
+      }
+
+      .textError {
+        color: red;
       }
     }
 
@@ -73,10 +82,10 @@
       font-size: 23px;
       color: #fff;
     }
-    
+
     button {
       width: 100%;
-      max-width: 536px;
+      max-width: 100%;
       cursor: pointer;
       background-color: #ffffff;
       outline-style: none;
@@ -84,15 +93,13 @@
       font-weight: 700;
       height: 42px;
       color: #000000;
-      margin: 32px;
-      margin-top: 45px;
+      margin-top: 15px;
       box-sizing: border-box;
       border-radius: 9999px;
       border: 1px solid #fff;
       font-size: 15px;
       text-decoration: none;
       box-sizing: border-box;
-      
     }
   }
 }

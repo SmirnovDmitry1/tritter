@@ -5,12 +5,17 @@ class Model {
   }
 
   registrationUser(data) {
-    registerUser(data).then(res => {
+   const res = registerUser(data).then(res => {
       if (res.isRegistration) {
         localStorage.setItem('user', JSON.stringify({...res.user, isLogin: true}))
         window.location.href = '/'
+        return true
+      } else {
+        return false
       }
     })
+
+    return res
   }
 }
 

@@ -1,104 +1,131 @@
-import Logo from '../../assets/tritter.png'
+import Logo from "../../assets/tritter.png";
 
 class View {
   constructor() {
-    this.app = this.getElement('#root')
-    this.shroud = this.createElement('div', 'shroud')
-    this.shroud.id = 'login'
+    this.app = this.getElement("#root");
+    this.shroud = this.createElement("div", "shroud");
+    this.shroud.id = "login";
 
-    this.app.append(this.shroud)
+    this.app.append(this.shroud);
 
     this.data = {
-      email: '',
-      password: '',
-    }
+      email: "",
+      password: "",
+    };
   }
 
   createElement(tag, className) {
-    const element = document.createElement(tag)
+    const element = document.createElement(tag);
 
-    if (className) element.classList.add(className)
+    if (className) element.classList.add(className);
 
-    return element
+    return element;
   }
 
   getElement(selector) {
-    const element = document.querySelector(selector)
+    const element = document.querySelector(selector);
 
-    return element
+    return element;
   }
 
   displayRegistration() {
-    
-    this.shroud.addEventListener('click', event => {
-      if (event.target.className === 'shroud') {
-        window.location.hash = ''
+    this.shroud.addEventListener("click", (event) => {
+      if (event.target.className === "shroud") {
+        window.location.hash = "";
       }
-    })
+    });
 
-    const block = this.createElement('div', 'login')
+    const block = this.createElement("div", "login");
 
-    const head = this.createElement('div', 'head')
+    const head = this.createElement("div", "head");
 
-    const iconClose = this.createElement('a', 'close')
-    iconClose.href = '/'
-    iconClose.textContent = '+'
+    const iconClose = this.createElement("a", "close");
+    iconClose.href = "/";
+    iconClose.textContent = "+";
 
-    const iconLogo = this.createElement('img', 'logo')
-    iconLogo.src = Logo
+    const iconLogo = this.createElement("img", "logo");
+    iconLogo.src = Logo;
 
-    const content = this.createElement('div', 'content')
-    
-    const title = this.createElement('span', 'title')
-    title.textContent = 'Вход в Триттер'
+    const content = this.createElement("div", "content");
 
-    const email = this.createElement('input', 'input')
-    email.type = 'input'
-    email.placeholder = 'Электронная почта'
-    email.value = this.data.email
+    const title = this.createElement("span", "title");
+    title.textContent = "Вход в Триттер";
 
-    email.addEventListener('input', (e) => {
-      this.data.email = e.target.value
-    })
+    const email = this.createElement("input", "input");
+    email.type = "email";
+    email.placeholder = "Электронная почта";
+    email.value = this.data.email;
+    email.id = "email";
 
-    const password = this.createElement('input', 'input')
-    password.type = 'password'
-    password.placeholder = 'Пароль'
-    password.value = this.data.password
+    email.addEventListener("input", (e) => {
+      this.data.email = e.target.value;
+      email.className = "input";
+    });
 
-    password.addEventListener('input', (e) => {
-      this.data.password = e.target.value
-    })
+    const password = this.createElement("input", "input");
+    password.type = "password";
+    password.placeholder = "Пароль";
+    password.value = this.data.password;
+    password.id = "password";
 
-    const button = this.createElement('button')
-    button.id = 'singIn'
-    button.textContent = 'Войти'
+    password.addEventListener("input", (e) => {
+      this.data.password = e.target.value;
+      password.className = "input";
+    });
 
-    const span = this.createElement('span', 'reg')
-    span.textContent = 'Не учетной записи? '
+    const button = this.createElement("button");
+    button.id = "singIn";
+    button.textContent = "Войти";
 
-    const link = this.createElement('a')
-    link.textContent = 'Зарегистрируйтесь'
-    link.href = '#registration'
+    const span = this.createElement("span", "reg");
+    span.textContent = "Не учетной записи? ";
 
-    span.append(link)
+    const link = this.createElement("a");
+    link.textContent = "Зарегистрируйтесь";
+    link.href = "#registration";
 
+    const isError = this.createElement("span", "err");
+    isError.textContent = 'Неверный логин или пароль'
 
-    head.append(iconClose, iconLogo)
-    content.append(title, email, password, button, span)
-    block.append(head, content)
+    span.append(link);
 
-    this.shroud.append(block)
-    
+    head.append(iconClose, iconLogo);
+    content.append(title, email, password, isError, button, span);
+    block.append(head, content);
+
+    this.shroud.append(block);
+  }
+
+  validateEmail(email) {
+    var pattern =
+      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return pattern.test(email);
   }
 
   bindLogin(handler) {
-    this.shroud.addEventListener('click', event => {
-      if (event.target.id === 'singIn') {
-        handler(this.data)
+    this.shroud.addEventListener("click", async (event) => {
+      if (event.target.id === "singIn") {
+        const email = this.getElement("#email");
+        const password = this.getElement("#password");
+        const error = this.getElement('.err')
+
+        email.className = this.validateEmail(this.data.email)
+          ? "input"
+          : "input error";
+
+        password.className =
+          this.data.password.length >= 6 ? "input" : "input error";
+
+        const res = await handler(this.data);
+
+        if (!res) {
+          error.className = 'err active'
+        } else {
+          error.className = 'err'
+        }
       }
-    })
+    });
   }
 }
 
-export default View
+export default View;

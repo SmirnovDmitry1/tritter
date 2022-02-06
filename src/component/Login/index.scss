@@ -56,12 +56,17 @@
         border: 1px solid #2a2e31;
         margin: 12px 0;
         border-radius: 5px;
-        padding: 10px; 
-        outline:none;
+        padding: 10px;
+        outline: none;
       }
 
-      .input:focus-visible, :focus {
-        border: 2px solid rgb(29, 155, 240)
+      .input:focus-visible,
+      :focus {
+        border: 2px solid rgb(29, 155, 240);
+      }
+
+      .error {
+        border: 2px solid red;
       }
     }
 
@@ -75,7 +80,7 @@
       font-size: 23px;
       color: #fff;
     }
-    
+
     button {
       width: 100%;
       cursor: pointer;
@@ -92,7 +97,6 @@
       font-size: 15px;
       text-decoration: none;
       box-sizing: border-box;
-      
     }
 
     .reg {
@@ -110,6 +114,15 @@
       a:hover {
         text-decoration: underline;
       }
+    }
+
+    .err {
+      color: red;
+      display: none;
+    }
+
+    .active {
+      display: flex;
     }
   }
 }
