@@ -1,0 +1,139 @@
+.side-menu {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    padding: 0;
+    color: #fff;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 700;
+    display: flex;
+    align-items: flex-start;
+    padding: 0 1rem;
+    box-sizing: border-box;
+    margin-top: 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    li {
+      display: flex;
+      cursor: pointer;
+      outline-style: none;
+      padding: 8px 16px;
+      border: none;
+      margin: 0 .5rem;
+      box-sizing: border-box;
+      border-radius: 9999px;
+      transition: .3s;
+      margin-bottom: 12px;
+    }
+
+    li:hover {
+      background-color: #ffffff30;
+    };
+
+    a {
+      display: flex;
+      align-items: center;
+      color: #fff;
+      text-decoration: none;
+    };
+
+    .profile {
+      display: flex;
+      align-items: center;
+    };
+
+    .avatar {
+      max-height: 40px;
+      max-width: 40px;
+      border-radius: 99999px;
+      margin-right: 14px;
+    };
+
+    .name, .login {
+      display: flex;
+        white-space: nowrap;
+        font-weight: 700;
+        font-size: 15px;
+    };
+
+    .login {
+      font-size: 14px;
+      color: rgb(110, 118, 125);
+      font-weight: 500;
+    }
+
+    #logOut {
+      display: flex;
+      align-items: center;
+      background-color: #000000;
+      color: #fff;
+      font-size: 20px;
+      line-height: 24px;
+      font-weight: 700;
+      padding: 8px 16px;
+      border: none;
+      margin: 0 .5rem;
+      box-sizing: border-box;
+      border-radius: 9999px;
+      transition: .3s;
+      margin-top: 200px;
+    }
+
+    #logOut:hover {
+      background-color: #ffffff30;
+    };
+
+    .icon {
+      max-height: 40px;
+      max-width: 40px;
+      margin-right: 14px;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+  .side-menu {
+    width: 80px;
+
+    li {
+      padding: 10px;
+      margin: 0px;
+      margin-bottom: 12px;
+
+      .avatar {
+        margin: 0
+      }
+
+      .content {
+        display: none;
+      }
+
+      a {
+        .icon {
+          margin: 0
+        }
+
+        span {
+          display: none;
+        }
+      }
+    } 
+
+    #logOut {
+      padding: 10px;
+      margin: 0px;
+      margin-top: 200px;
+
+      .icon {
+        margin: 0
+      }
+
+      span {
+        display: none;
+      }
+    }
+  }
+}
+

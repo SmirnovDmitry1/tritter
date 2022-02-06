@@ -26,7 +26,7 @@ const optimizationSetup = () => {
 const bableOptions = (extention) => {
   const options = {
     presets: [
-    "@babel/preset-env"
+    "@babel/preset-env",
     ],
     plugins: []
   }
@@ -44,7 +44,7 @@ module.exports = {
   context: path.resolve(__dirname, 'src'),
   mode: 'development',
   entry: {
-    main: './index.jsx',
+    main: ['babel-polyfill','./index.js']
   },
   output: {
     filename: filename('js'),
