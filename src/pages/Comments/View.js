@@ -112,6 +112,7 @@ class View {
         const main = this.createElement("div", "main");
         const textPost = this.createElement("span", "textPost");
         textPost.textContent = post.text;
+        textPost.style.fontWeight = post.bold ? '700' : '500'
         const imagePost = this.createElement("img", "imagePost");
         imagePost.src = post.imageURL ? post.imageURL : "";
         const datePost = this.createElement("span", "datePost");
