@@ -167,6 +167,7 @@ class View {
         this.input.value = "";
         this.loadImage.src = "";
         this.boldIc.id = "";
+        this.inputImage.files = []
         this.boldIc.src = BoldIcon;
         this.data.bold = false;
       }

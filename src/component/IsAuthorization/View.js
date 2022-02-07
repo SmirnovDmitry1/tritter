@@ -24,6 +24,7 @@ class View {
     if (!user.isLogin) {
       
       const div = this.createElement('div', 'IsAuthorization')
+      div.id = 'auth'
       const content = this.createElement('div', 'content')
       const buttons = this.createElement('div', 'buttons')
 

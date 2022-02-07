@@ -82,7 +82,7 @@ class View {
       const input = this.getElement("input");
       const image = this.getElement(".prevImage");
       const counterComment = this.getElement(".counterComment");
-      counterComment.textContent = post.comments.length;
+      counterComment.textContent = post?.comments?.length;
       input.value = "";
       image.src = "";
 
@@ -99,13 +99,13 @@ class View {
       if (Object.keys(post).length) {
         const creator = this.createElement("div", "creator");
         const avatarUser = this.createElement("img");
-        avatarUser.src = post.user.photoURL;
-        avatarUser.style.border = `2px solid ${post.user.color}`;
+        avatarUser.src = post.user?.photoURL;
+        avatarUser.style.border = `2px solid ${post.user?.color}`;
         const infoUser = this.createElement("div", "infoUser");
         const name = this.createElement("span");
-        name.textContent = post.user.userName;
+        name.textContent = post.user?.userName;
         const login = this.createElement("span", "login");
-        login.textContent = "@" + post.user.login;
+        login.textContent = "@" + post.user?.login;
         infoUser.append(name, login);
         creator.append(avatarUser, infoUser);
 
@@ -124,7 +124,7 @@ class View {
         const commentIc = this.createElement("img", "commentIc");
         commentIc.src = CommentsIcon;
         const counterComment = this.createElement("span", "counterComment");
-        counterComment.textContent = post.comments ? post.comments.length : "";
+        counterComment.textContent = post?.comments ? post?.comments?.length : "";
         panel.append(commentIc, counterComment);
 
         const form = this.createElement("div", "form");
@@ -188,7 +188,7 @@ class View {
 
         const commentsList = this.createElement("div", "commentsList");
 
-        if (post.comments.length) {
+        if (post?.comments?.length) {
           post.comments.forEach((comment) => {
             this.displayComment(comment, commentsList);
           });

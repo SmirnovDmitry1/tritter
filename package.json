@@ -7,6 +7,7 @@
     "dev": "cross-env MODE=development webpack-dev-server --mode development",
     "build-dev": "cross-env MODE=development webpack --mode development",
     "build": "cross-env MODE=production webpack --mode production",
+    "test": "jest",
     "analyze": "webpack --json > info.json && webpack-bundle-analyzer info.json"
   },
   "author": "CharlieByrd <bmatyunin.exceedteam@gmail.com>",
@@ -26,6 +27,7 @@
     "css-loader": "^6.4.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.4.0",
+    "jest": "^27.5.0",
     "mini-css-extract-plugin": "^2.4.3",
     "sass": "^1.43.3",
     "sass-loader": "^12.2.0",
@@ -37,7 +39,14 @@
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.3.1"
   },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less|scss)$": "<rootDir>/__mocks__/styleMock.js"
+    }
+  },
   "dependencies": {
+    "babel-jest": "^27.5.0",
     "firebase": "^9.6.5",
     "local-data-storage": "^0.3.0",
     "moment": "^2.29.1",

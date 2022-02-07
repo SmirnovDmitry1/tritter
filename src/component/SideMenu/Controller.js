@@ -23,4 +23,4 @@ class Controller {
   }
 }
 
-export const SideMenu = new Controller(new Model(), new View())
+export const SideMenu = () => new Controller(new Model(), new View())

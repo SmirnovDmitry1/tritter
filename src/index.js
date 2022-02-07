@@ -4,13 +4,16 @@ import { Home } from "./pages/Home/Controller.js";
 import { Registration } from "./component/Registration/Controller.js";
 import { Login } from "./component/Login/Controller.js";
 import { Comments } from "./pages/Comments/Controller";
-import { Profile } from "./pages/Profile/Controller"
+import { Profile } from "./pages/Profile/Controller";
 
 import "./index.scss";
 
 let path;
 let modal;
 let page;
+
+IsAuthorization();
+SideMenu();
 
 window.onload = (e) => {
   path = e.path[0].location.hash;

@@ -18,4 +18,4 @@ class Controller {
   }
 }
 
-export const IsAuthorization = new Controller(new Model(), new View())
+export const IsAuthorization = () => new Controller(new Model(), new View())

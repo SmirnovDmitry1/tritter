@@ -42,6 +42,7 @@ class View {
 
   displayPosts(post, block) {
     const postBlock = this.createElement("div", "postBlock");
+    postBlock.id = post.id
     const contentPost = this.createElement("div", "contentPost");
 
     const avatarPost = this.createElement("img", "avatarPost");
@@ -83,6 +84,7 @@ class View {
   }
 
   displayPost(posts, user, profile) {
+    console.log(profile);
     if (this.profile.firstChild) {
       const postsList = this.getElement(".postsList");
       const input = this.getElement("input");

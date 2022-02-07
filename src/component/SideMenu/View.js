@@ -8,6 +8,7 @@ class View {
     this.logOut
     this.app = this.getElement('#root')
     this.ul = this.createElement('ul', 'side-menu')
+    this.ul.id = 'menu' 
     this.li = this.createElement('li', 'link')
     this.link = this.createElement('a')
     this.icon = this.createElement('img', 'icon')
@@ -38,6 +39,7 @@ class View {
   displayLinkUser(user) {
     if (user?.isLogin) {
       const profile = this.createElement('li', 'link')
+      profile.id = 'profile'
       const link = this.createElement('a', 'profile')
       link.href= `./?id=${user.uid}#profile`
 

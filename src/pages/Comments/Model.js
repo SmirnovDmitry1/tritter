@@ -1,5 +1,4 @@
-import { createComment, getAllPosts, createCommentImage, dinamycGetAllPosts, getPost } from "../../api/api.js";
-import moment from "moment";
+import { createComment, createCommentImage, dinamycGetAllPosts, getPost } from "../../api/api.js";
 
 class Model {
   constructor() {
