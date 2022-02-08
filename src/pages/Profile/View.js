@@ -42,7 +42,7 @@ class View {
 
   displayPosts(post, block) {
     const postBlock = this.createElement("div", "postBlock");
-    postBlock.id = post.id
+    postBlock.id = post.id;
     const contentPost = this.createElement("div", "contentPost");
 
     const avatarPost = this.createElement("img", "avatarPost");
@@ -58,7 +58,7 @@ class View {
 
     const textPost = this.createElement("span", "textPost");
     textPost.textContent = post.text;
-    textPost.style.fontWeight = post.bold ? 'bold' : '400'
+    textPost.style.fontWeight = post.bold ? "bold" : "400";
 
     const imagePost = this.createElement("img", "imagePost");
     imagePost.src = post.imageURL;
@@ -84,14 +84,13 @@ class View {
   }
 
   displayPost(posts, user, profile) {
-    console.log(profile);
     if (this.profile.firstChild) {
       const postsList = this.getElement(".postsList");
       const input = this.getElement("input");
       const image = this.getElement(".prevImage");
       input.value = "";
       image.src = "";
-      input.style.fontWeight = '500'
+      input.style.fontWeight = "500";
 
       while (postsList.firstChild) {
         postsList.removeChild(postsList.firstChild);
@@ -103,7 +102,7 @@ class View {
         });
       }
     } else {
-      if (Object.keys(posts).length) {
+      if (Object.keys(profile).length) {
         const back = this.createElement("a", "backLink");
         back.href = "/#";
         const backIc = this.createElement("img");
@@ -173,12 +172,12 @@ class View {
               boldIc.id = "";
               boldIc.src = BoldIcon;
               this.data.bold = false;
-              input.style.fontWeight = '500'
+              input.style.fontWeight = "500";
             } else {
               boldIc.id = "active";
               boldIc.src = ActiveBoldIcon;
               this.data.bold = true;
-              input.style.fontWeight = 'bold'
+              input.style.fontWeight = "bold";
             }
           });
 
@@ -213,7 +212,7 @@ class View {
     this.profile.addEventListener("click", (event) => {
       if (event.target.id === "create" && this.data.text) {
         handler(this.data);
-        this.data = {...this.initialData};
+        this.data = { ...this.initialData };
         this.loadImage.src = "";
         this.getElement(".boldIc").id = "";
         this.getElement(".boldIc").src = BoldIcon;

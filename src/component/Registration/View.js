@@ -166,7 +166,6 @@ class View {
         validInput.forEach(item => 
           this.validator(item)
         )
-          console.log(this.err);
         email.className = this.validateEmail(this.data.email)
           ? "input"
           : "input error";
@@ -177,7 +176,7 @@ class View {
 
         if (this.err) {
           const res = await handler(this.data);
-          console.log(res);
+ 
           textError.textContent = res ? '' : 'Глупый Орк, ты накосячил с паролем или мылом, я понимаю что твоему мозгу это сложно запомнить, но в пароле должно быть больше 6 символов, а в мыле должна присутсвовать собака и не та которую ты сожрал на завтрак, а символ (@), или другой Орк забрал твое мыло АХАХАХА'
         }
         

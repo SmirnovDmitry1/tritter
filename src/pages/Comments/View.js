@@ -206,7 +206,7 @@ class View {
   createComment(handler) {
     this.comments.addEventListener("click", (event) => {
       if (event.target.id === "create" && this.data.text) {
-        console.log(this.data);
+
         handler(this.data);
         this.data = {...this.initialData};
         this.loadImage.src = "";
