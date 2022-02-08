@@ -13,7 +13,7 @@ describe("page", () => {
   beforeEach(() => {
     document.documentElement.innerHTML = html.toString();
     home = Home();
-    home.onTodoListChanged(posts, user)
+    home.onPostsChanged(posts, user)
     container = document.querySelector("#home");
   });
   test("pageLoaded", () => {

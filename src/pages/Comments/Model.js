@@ -4,24 +4,24 @@ class Model {
   constructor() {
     this.search = window.location.search
     this.id = this.search.slice(this.search.indexOf('=') + 1)
-    this.posts = []
+    this.post = []
     this.user = JSON.parse(localStorage.getItem("user")) || { isLogin: false };
     dinamycGetAllPosts(() => this.getPosts())
   }
 
   async getPosts() {
-    this.posts = await getPost(this.id);
+    this.post = await getPost(this.id);
     
-    this._commit(this.posts);
+    this._commit(this.post);
   }
 
-  bindTodoListChanged(callback) {
-    this.onTodoListChanged = callback;
+  bindCommentsChanged(callback) {
+    this.onCommentsChanged = callback;
   }
 
-  _commit(posts) {
-    this.onTodoListChanged(posts, this.user);
-    localStorage.setItem("posts", JSON.stringify(posts));
+  _commit(post) {
+    this.onCommentsChanged(post, this.user);
+    localStorage.setItem("post", JSON.stringify(post));
   }
 
   async addComment(data) {
@@ -32,7 +32,7 @@ class Model {
       await createComment({...data, id: this.id})
     }
 
-    this._commit(this.posts)
+    this._commit(this.post)
   }
 }
 

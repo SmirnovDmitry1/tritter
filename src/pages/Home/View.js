@@ -6,6 +6,13 @@ import ActiveBoldIcon from "../../assets/activeBold.png";
 
 class View {
   constructor() {
+
+    this.data = {
+      text: "",
+      image: null,
+      bold: false,
+    };
+
     this.app = this.getElement("#root");
     this.home = this.createElement("div", "Home");
     this.home.id = "home";
@@ -54,19 +61,15 @@ class View {
       if (this.data.bold) {
         this.boldIc.id = "";
         this.boldIc.src = BoldIcon;
+        this.input.style.fontWeight = '500'
         this.data.bold = false;
       } else {
         this.boldIc.id = "active";
         this.boldIc.src = ActiveBoldIcon;
+        this.input.style.fontWeight = 'bold'
         this.data.bold = true;
       }
     });
-
-    this.data = {
-      text: "",
-      image: null,
-      bold: false,
-    };
   }
 
   _resetInput() {
@@ -125,7 +128,7 @@ class View {
 
           const span = this.createElement("span");
           span.textContent = post.text;
-          span.style.fontWeight = post.bold ? 'bold' : '400'
+          span.style.fontWeight = post.bold ? "bold" : "400";
 
           const image = this.createElement("img", "image");
           image.src = post.imageURL ? post.imageURL : "";
@@ -163,15 +166,15 @@ class View {
           text: this.input.value,
           image: this.inputImage.files[0],
         });
-  
+
         this.input.value = "";
         this.loadImage.src = "";
         this.boldIc.id = "";
-        this.inputImage.files = []
+        this.inputImage.value = "";
         this.boldIc.src = BoldIcon;
         this.data.bold = false;
+        this.input.style.fontWeight = '500'
       }
-      
     });
   }
 }

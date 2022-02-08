@@ -9,9 +9,9 @@ class Controller {
     this.model = model
     this.view = view
 
-    this.model.bindTodoListChanged(this.onTodoListChanged)
+    this.model.bindCommentsChanged(this.onCommentsChanged)
     this.view.createComment(this.handleAddPost)
-    this.onTodoListChanged(this.model.posts, this.model.user)
+    this.onCommentsChanged(this.model.posts, this.model.user)
 
     
   }
@@ -20,7 +20,7 @@ class Controller {
     document.querySelector('#home').remove()
   }
 
-  onTodoListChanged = (posts, user) => {
+  onCommentsChanged = (posts, user) => {
     this.view.displayPost(posts, user)
   }
 

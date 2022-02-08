@@ -85,6 +85,7 @@ class View {
       counterComment.textContent = post?.comments?.length;
       input.value = "";
       image.src = "";
+      input.style.fontWeight = '500'
 
       while (commentsList.firstChild) {
         commentsList.removeChild(commentsList.firstChild);
@@ -96,7 +97,7 @@ class View {
         });
       }
     } else {
-      if (Object.keys(post).length) {
+      if (post && Object.keys(post).length) {
         const creator = this.createElement("div", "creator");
         const avatarUser = this.createElement("img");
         avatarUser.src = post.user?.photoURL;
@@ -167,10 +168,12 @@ class View {
               boldIc.id = "";
               boldIc.src = BoldIcon;
               this.data.bold = false;
+              input.style.fontWeight = '500'
             } else {
               boldIc.id = "active";
               boldIc.src = ActiveBoldIcon;
               this.data.bold = true;
+              input.style.fontWeight = 'bold'
             }
           });
 
@@ -203,8 +206,9 @@ class View {
   createComment(handler) {
     this.comments.addEventListener("click", (event) => {
       if (event.target.id === "create" && this.data.text) {
+        console.log(this.data);
         handler(this.data);
-        this.data = this.initialData;
+        this.data = {...this.initialData};
         this.loadImage.src = "";
         this.getElement('.boldIc').id = ''
         this.getElement('.boldIc').src = BoldIcon

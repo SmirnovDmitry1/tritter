@@ -15,12 +15,12 @@ class Model {
     this._commit(this.posts);
   }
 
-  bindTodoListChanged(callback) {
-    this.onTodoListChanged = callback;
+  bindPostChanged(callback) {
+    this.onPostsChanged = callback;
   }
 
   _commit(posts) {
-    this.onTodoListChanged(posts, this.user);
+    this.onPostsChanged(posts, this.user);
     localStorage.setItem("posts", JSON.stringify(posts));
   }
 

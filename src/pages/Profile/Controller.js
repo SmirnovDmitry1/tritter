@@ -9,7 +9,7 @@ class Controller {
     this.model = model
     this.view = view
 
-    this.model.bindTodoListChanged(this.onPostsChanged)
+    this.model.bindPostChanged(this.onPostsChanged)
     this.onPostsChanged(this.model.posts, this.model.user, this.model.profile)
     this.view.createPost(this.handleAddPost)
     

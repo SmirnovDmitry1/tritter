@@ -13,7 +13,7 @@ describe("page", () => {
   beforeEach(() => {
     document.documentElement.innerHTML = html.toString();
     comments = Comments();
-    comments.onTodoListChanged(post, user)
+    comments.onCommentsChanged(post, user)
     container = document.querySelector("#comments");
   });
   test("pageLoaded", () => {

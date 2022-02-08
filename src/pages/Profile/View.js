@@ -91,6 +91,7 @@ class View {
       const image = this.getElement(".prevImage");
       input.value = "";
       image.src = "";
+      input.style.fontWeight = '500'
 
       while (postsList.firstChild) {
         postsList.removeChild(postsList.firstChild);
@@ -172,10 +173,12 @@ class View {
               boldIc.id = "";
               boldIc.src = BoldIcon;
               this.data.bold = false;
+              input.style.fontWeight = '500'
             } else {
               boldIc.id = "active";
               boldIc.src = ActiveBoldIcon;
               this.data.bold = true;
+              input.style.fontWeight = 'bold'
             }
           });
 
@@ -210,7 +213,7 @@ class View {
     this.profile.addEventListener("click", (event) => {
       if (event.target.id === "create" && this.data.text) {
         handler(this.data);
-        this.data = this.initialData;
+        this.data = {...this.initialData};
         this.loadImage.src = "";
         this.getElement(".boldIc").id = "";
         this.getElement(".boldIc").src = BoldIcon;
