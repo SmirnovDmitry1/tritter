@@ -114,7 +114,7 @@ class View {
 
     const button = this.createElement("button");
     button.id = "reg";
-    button.textContent = "Зарегестрироваться";
+    button.textContent = "Регистрация";
 
     head.append(iconClose, iconLogo);
     content.append(

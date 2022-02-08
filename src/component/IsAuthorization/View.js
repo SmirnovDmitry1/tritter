@@ -39,7 +39,7 @@ class View {
       login.href='/#login'
 
       const registration = this.createElement('a', 'registration')
-      registration.textContent = 'Зарегестрироваться'
+      registration.textContent = 'Регистрация'
       registration.href='/#registration'
 
 
