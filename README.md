@@ -28,4 +28,5 @@
 Я понимаю что для тебя это сложно, но будь не так туп и придумай пароль побольше 5 символов. ПОБОЛЬШЕ ПЯТИ ЭТО ШЕСТЬ И БОЛЬШЕ.
 
 Дальше думаю сам разберешься, мы хоть и тупые но клацать во все подряд умеем.
-Вот более подробная инструкция: https://docs.google.com/document/d1rVEb1WP8v1fkX0S-y42o2ikIw11dccWDvY10wqczOCs/edit?usp=sharing
+
+Вот более подробная инструкция: https://docs.google.com/document/d/1rVEb1WP8v1fkX0S-y42o2ikIw11dccWDvY10wqczOCs/edit?usp=sharing
