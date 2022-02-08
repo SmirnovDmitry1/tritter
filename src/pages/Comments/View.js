@@ -28,7 +28,7 @@ class View {
     this.data = {
       text: "",
       photo: null,
-      false: false,
+      bold: false,
     };
   }
 
